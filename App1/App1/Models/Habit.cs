@@ -15,6 +15,8 @@ namespace App1.Models
         public double Progress { get; set; }
         public double ProgressInPercent { get; set; }
 
+        public string Color { get; set; }
+
         public Command<int> TappCommand { get; } = new Command<int>(OnTappCommand);
 
         private static async void OnTappCommand(int id)

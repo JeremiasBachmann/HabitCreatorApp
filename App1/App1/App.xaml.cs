@@ -15,7 +15,7 @@ namespace App1
             {
                 if (database == null)
                 {
-                    database = new LocalDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Habits.db3"));
+                    database = new LocalDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Habits.db4"));
                 }
                 return database;
             }

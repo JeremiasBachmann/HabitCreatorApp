@@ -19,6 +19,7 @@ namespace MyFirsApp1tMobileApp.ViewModels
         private double progressValue = 0;
         private int id = 0;
         private string name;
+        private string color;
 
         private double progressValueForProgressBar = 0;
         public double ProgressValueForProgressBar
@@ -45,7 +46,7 @@ namespace MyFirsApp1tMobileApp.ViewModels
         {
             FinishCommand = new Command(OnFinishCommand);
             ClickedCommand = new Command(OnClickedCommand);
-          
+            GetDataFromHabitAsync();
         }
 
         private async void GetDataFromHabitAsync()
@@ -59,25 +60,23 @@ namespace MyFirsApp1tMobileApp.ViewModels
                 progressValue = h.Progress;
                 name = h.Name;
             }
+
+            ProgressValueForProgressBar = (progressValue / maxValue);
+            ProgressValueAsString = progressValue.ToString();
         }
 
-        private async void SaveHabit()
+        private async void OnFinishCommand(object obj)
         {
-            var habits = new Habit
+            var habit = new Habit
             {
                 ID = id,
                 Name = name,
                 Progress = progressValue,
                 MaxProgress = maxValue,
-                ProgressInPercent = (progressValue / maxValue)
+                ProgressInPercent = (progressValue / maxValue),
+                Color = color
             };
-            await App.LocalDatabase.UpdateHabitAsync(habits);
-        }
-      
-
-        private async void OnFinishCommand(object obj)
-        {
-            SaveHabit();
+            await App.LocalDatabase.UpdateHabitAsync(habit);
             await Shell.Current.GoToAsync($"//{nameof(ProgressPage)}?Id={id}");
         }
 
