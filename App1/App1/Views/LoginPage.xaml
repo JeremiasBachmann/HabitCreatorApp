@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App1.Views.LoginPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <Grid VerticalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" HorizontalTextAlignment="Center" FontSize="35" FontAttributes="Bold">Login</Label>
+            <StackLayout Grid.Row="1" Margin="20,30,20,0">
+                <Label Text="Username" FontSize="18"/>
+                <Entry x:Name="Username" Text="{Binding Username}"/>
+                <Label Text="Password" FontSize="18"/>
+                <Entry x:Name="Password" Text="{Binding Password}"/>
+                <Label Text="Forgot password?" HorizontalTextAlignment="End" FontSize="15">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            <Button Grid.Row="2" VerticalOptions="Center" Margin="20,20,20,0" CornerRadius="6" Text="Login" Command="{Binding SignInCommand}"/>
+            <Label Grid.Row="3" Text="Registrieren" HorizontalTextAlignment="Center" FontSize="15">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SignUpCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

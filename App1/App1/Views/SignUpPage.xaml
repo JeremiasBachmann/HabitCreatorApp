@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App1.Views.SignUpPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <Grid VerticalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" HorizontalTextAlignment="Center" FontSize="35" FontAttributes="Bold">Registrieren</Label>
+            <StackLayout Grid.Row="1" Margin="20,30,20,0">
+                <Label Text="Email" FontSize="18"/>
+                <Entry x:Name="Email" Text="{Binding Email}"/>
+                <Label Text="Username" FontSize="18"/>
+                <Entry x:Name="Username" Text="{Binding Username}"/>
+                <Label Text="Password" FontSize="18"/>
+                <Entry x:Name="Password" Text="{Binding Password}"/>
+            </StackLayout>
+            <Button Grid.Row="2" VerticalOptions="Center" Margin="20,20,20,0" CornerRadius="6" Text="Registrieren" Command="{Binding SignUpCommand}"/>
+            <Label Grid.Row="3" Text="Login" HorizontalTextAlignment="Center" FontSize="15">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SignInCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

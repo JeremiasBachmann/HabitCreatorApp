@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:plugin="clr-namespace:ProgressRingControl.Forms.Plugin;assembly=ProgressRing.Forms.Plugin"
+             x:Class="App1.Views.PractisePage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <plugin:ProgressRing Grid.Row="2" HeightRequest="275" Margin="90,20,90,0" x:Name="progressRing" RingProgressColor="{DynamicResource Key=Primary}" RingBaseColor="#ebebeb"  RingThickness="22" Progress="{Binding ProgressValueForProgressBar}">
+                <plugin:ProgressRing.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ClickedCommand}" />
+                </plugin:ProgressRing.GestureRecognizers>
+            </plugin:ProgressRing>
+            <Label Grid.Row="2" Text="{Binding ProgressValueAsString}" FontSize="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="90,20,90,0" TextColor="Black">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ClickedCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+            <Button Grid.Row="5" Text="Finish" Margin="15" HorizontalOptions="Center" WidthRequest="110" Command="{Binding FinishCommand}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
