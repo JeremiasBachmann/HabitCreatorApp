@@ -80,11 +80,14 @@
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="About" Icon="tab_about.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+        <ShellContent Title="Goals" Icon="tab_about.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>
 
+    <MenuItem Text="Charts" StyleClass="MenuItemLayoutStyle" Clicked="OnChartsClicked">
+    </MenuItem>
+
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
-    <MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
+    <MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnLogoutClicked">
     </MenuItem>
 
     <!--
@@ -99,6 +102,7 @@
     <ShellContent Route="NewHabitPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:NewHabitPage}" />
     <ShellContent Route="ProgressPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:ProgressPage}" />
     <ShellContent Route="PractisePage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:PractisePage}" />
+    <ShellContent Route="ChartPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:ChartPage}" />
 
 
 

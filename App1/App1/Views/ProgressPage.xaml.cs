@@ -34,8 +34,9 @@ namespace App1.Views
             foreach (Habit h in habits.Where(l => l.ID == id))
             {
                 progressRing.Progress = (h.Progress / h.MaxProgress);
-                GoalLabel.Text = ($"Your goal for today: {h.Name} push ups");
-                ProgressLabel.Text = ($"{h.Progress}/{h.MaxProgress}");
+                GoalLabel.Text = ($"Your goal for today: {h.MaxProgress} {h.Name}");
+                ProgressLabel.Text = $"{h.Progress}/{h.MaxProgress}";
+                RoundsLabel.Text = $"{h.Round} Rounds";
             }
         }
     }

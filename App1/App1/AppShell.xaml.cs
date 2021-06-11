@@ -13,9 +13,14 @@ namespace App1
             InitializeComponent();
         }
 
-        private async void OnMenuItemClicked(object sender, EventArgs e)
+        private void OnChartsClicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("//LoginPage");
+             Shell.Current.GoToAsync($"//{nameof(ChartPage)}");
+        }
+
+        private void OnLogoutClicked(object sender, EventArgs e)
+        {
+             Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
         }
     }
 }

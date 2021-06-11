@@ -16,10 +16,11 @@ namespace MyFirsApp1tMobileApp.ViewModels
         public Command ClickedCommand { get; }
         public event PropertyChangedEventHandler PropertyChanged;
         private double maxValue = 100;
-        private double progressValue = 0;
-        private int id = 0;
+        private double progressValue;
+        private int id;
         private string name;
         private string color;
+        private int round;
 
         private double progressValueForProgressBar = 0;
         public double ProgressValueForProgressBar
@@ -59,6 +60,7 @@ namespace MyFirsApp1tMobileApp.ViewModels
                 maxValue = h.MaxProgress;
                 progressValue = h.Progress;
                 name = h.Name;
+                round = h.Round;
             }
 
             ProgressValueForProgressBar = (progressValue / maxValue);
@@ -74,7 +76,8 @@ namespace MyFirsApp1tMobileApp.ViewModels
                 Progress = progressValue,
                 MaxProgress = maxValue,
                 ProgressInPercent = (progressValue / maxValue),
-                Color = color
+                Color = color,
+                Round = (round++)
             };
             await App.LocalDatabase.UpdateHabitAsync(habit);
             await Shell.Current.GoToAsync($"//{nameof(ProgressPage)}?Id={id}");
