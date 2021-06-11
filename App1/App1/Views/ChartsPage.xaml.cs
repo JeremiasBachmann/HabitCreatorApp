@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using App1.Models;
 using Microcharts;
 using SkiaSharp;
 using Xamarin.Forms;
@@ -12,41 +13,33 @@ namespace App1.Views
 {
     public partial class ChartsPage : ContentPage
     {
-        private readonly ChartEntry[] entries = new[]
-        {
-            new ChartEntry(212)
-            {
-                Label = "UWP",
-                ValueLabel = "112",
-                Color = SKColor.Parse("#2c3e50")
-            },
-            new ChartEntry(248)
-            {
-                Label = "Android",
-                ValueLabel = "648",
-                Color = SKColor.Parse("#77d065")
-            },
-            new ChartEntry(128)
-            {
-                Label = "iOS",
-                ValueLabel = "428",
-                Color = SKColor.Parse("#b455b6")
-            },
-            new ChartEntry(514)
-            {
-                Label = "Forms",
-                ValueLabel = "214",
-                Color = SKColor.Parse("#3498db")
-            }
-        };
+        public List<ChartEntry> Entries { get; set; } = new List<ChartEntry>();
+
+
+
 
         public ChartsPage()
         {
             InitializeComponent();
+            LoadLineChart(1);
+        }
 
-            chartViewBar.Chart = new BarChart { Entries = entries, ValueLabelOrientation = Orientation.Horizontal, LabelTextSize = 30 };
-            chartViewPie.Chart = new PieChart { Entries = entries, HoleRadius = 0.3f };
-            chartViewLine.Chart = new LineChart { Entries = entries, LineMode = LineMode.Straight };
+        private async void LoadLineChart(int id)
+        {
+            var days = new List<Day>();
+            days = await App.LocalDatabase.GetDayAsync();
+
+            foreach (Day d in days.Where(l => l.ID == id))
+            {
+                ChartEntry chartEntry = new ChartEntry(Convert.ToSingle(d.Value))
+                {
+                    Label = d.Habit.Name,
+                    ValueLabel = d.Value.ToString(),
+                    Color = SKColor.Parse("#3498db")
+                };
+                Entries.Add(chartEntry);
+            }
+            chartViewLine.Chart = new LineChart { Entries = Entries, LineMode = LineMode.Straight };
         }
     }
 }

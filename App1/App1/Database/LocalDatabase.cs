@@ -13,6 +13,7 @@ namespace App1.Database
         {
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<Habit>().Wait();
+            _database.CreateTableAsync<Day>().Wait();
         }
 
         public Task<List<Habit>> GetHabitAsync()
@@ -20,9 +21,19 @@ namespace App1.Database
             return _database.Table<Habit>().ToListAsync();
         }
 
+        public Task<List<Day>> GetDayAsync()
+        {
+            return _database.Table<Day>().ToListAsync();
+        }
+
         public Task<int> SaveHabitAsync(Habit habit)
         {
             return _database.InsertAsync(habit);
+        }
+
+        public Task<int> SaveDayAsync(Day day)
+        {
+            return _database.InsertAsync(day);
         }
 
         public Task<int> UpdateHabitAsync(Habit habit)

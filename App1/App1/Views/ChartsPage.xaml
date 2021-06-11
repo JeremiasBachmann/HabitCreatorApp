@@ -12,8 +12,6 @@
 
         <ScrollView>
             <StackLayout>
-                <microcharts:ChartView x:Name="chartViewBar" HeightRequest="300" />
-                <microcharts:ChartView x:Name="chartViewPie" HeightRequest="300" />
                 <microcharts:ChartView x:Name="chartViewLine" HeightRequest="300" />
             </StackLayout>
         </ScrollView>
