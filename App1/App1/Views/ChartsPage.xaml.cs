@@ -74,6 +74,46 @@ namespace App1.Views
                 Entries.Add(chartEntry);
             }
             chartViewLine.Chart = new LineChart { Entries = Entries, LineMode = LineMode.Straight, IsAnimated = true, ValueLabelOrientation = Orientation.Horizontal};
+
+            LoadLabels(sortedDays, habit);
+        }
+
+        private void LoadLabels(List<Day> sortedDays, Habit habit)
+        {
+            var last7Days = sortedDays.Skip(Math.Max(0, sortedDays.Count() - 7)).ToList();
+            var lastMonth = sortedDays.Where(d => d.Date.Date.Month == DateTime.UtcNow.Date.Month);
+            var lastDay = sortedDays.Skip(Math.Max(0, sortedDays.Count() - 1)).ToList();
+
+            double perDayPushUps = 0;
+            double dailyPushUps = lastDay.FirstOrDefault().Value;
+            double weeklyPushUps = 0;
+            double MonthlyPushUps = 0;
+
+            foreach (Day d in last7Days)
+            {
+                weeklyPushUps += d.Value;
+            }
+
+            perDayPushUps = weeklyPushUps / 7;
+            perDayPushUps = Math.Truncate(perDayPushUps);
+
+            foreach (Day d in lastMonth)
+            {
+                MonthlyPushUps += d.Value;
+            }
+
+
+            PerDayLabelValue.Text = perDayPushUps.ToString();
+            DaylyLabelValue.Text = dailyPushUps.ToString();
+            WeeklyLabelValue.Text = weeklyPushUps.ToString();
+            MonthlyLabelValue.Text = MonthlyPushUps.ToString();
+
+            var habitName = habit.Name.ToString();
+
+            PerDayLabel.Text = $"{habitName} per day:";
+            DaylyLabel.Text = $"Daily {habitName}:";
+            WeeklyLabel.Text = $"Weekly {habitName}:";
+            MonthlyLabel.Text = $"Monthly {habitName}:";
         }
     }
 }
