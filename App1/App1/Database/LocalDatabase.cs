@@ -21,6 +21,16 @@ namespace App1.Database
             return _database.Table<Habit>().ToListAsync();
         }
 
+        public Task<Habit> GetOneHabitAsync(int id)
+        {
+            return _database.Table<Habit>().FirstOrDefaultAsync(h => h.ID == id);
+        }
+
+        public Task<Day> GetOneDaytAsync(int id)
+        {
+            return _database.Table<Day>().FirstOrDefaultAsync(h => h.ID == id);
+        }
+
         public Task<List<Day>> GetDayAsync()
         {
             return _database.Table<Day>().ToListAsync();
@@ -41,9 +51,19 @@ namespace App1.Database
             return _database.UpdateAsync(habit);
         }
 
+        public Task<int> UpdateDayAsync(Day day)
+        {
+            return _database.InsertOrReplaceAsync(day);
+        }
+
         public Task<int> DeleteHabitAsync(Habit habit)
         {
             return _database.DeleteAsync(habit);
+        }
+
+        public Task<int> DeleteDaytAsync(Day day)
+        {
+            return _database.DeleteAsync(day);
         }
     }
 }

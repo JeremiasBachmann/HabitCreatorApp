@@ -83,9 +83,6 @@
         <ShellContent Title="Goals" Icon="tab_about.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>
 
-    <MenuItem Text="Charts" StyleClass="MenuItemLayoutStyle" Clicked="OnChartsClicked">
-    </MenuItem>
-
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
     <MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnLogoutClicked">
     </MenuItem>
@@ -102,7 +99,7 @@
     <ShellContent Route="NewHabitPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:NewHabitPage}" />
     <ShellContent Route="ProgressPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:ProgressPage}" />
     <ShellContent Route="PractisePage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:PractisePage}" />
-    <ShellContent Route="ChartsPage" Shell.FlyoutBehavior="Flyout" ContentTemplate="{DataTemplate local:ChartsPage}" />
+    <ShellContent Route="ChartsPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:ChartsPage}" />
 
 
 

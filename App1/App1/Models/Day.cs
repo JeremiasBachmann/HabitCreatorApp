@@ -8,10 +8,16 @@ namespace App1.Models
 {
     public class Day
     {
+
+        public Day()
+        {
+            Date = DateTime.UtcNow.Date;
+        }
+
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
         public DateTime Date { get; set; }
-        public int Value { get; set; }
-        public Habit Habit { get; set; }
+        public double Value { get; set; }
+        public int HabitID { get; set; }
     }
 }

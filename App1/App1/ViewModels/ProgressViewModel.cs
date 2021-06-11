@@ -16,6 +16,7 @@ namespace App1.ViewModels
         public ICommand BackCommand { get; }
         public ICommand PractiseCommand { get; }
         public ICommand DeleteCommand { get; }
+        public ICommand ChartCommand { get; }
 
         private int id;
         public ProgressViewModel()
@@ -25,6 +26,7 @@ namespace App1.ViewModels
             BackCommand = new Command(OnBackCommand);
             PractiseCommand = new Command(OnPractiseCommand);
             DeleteCommand = new Command(OnDeleteCommand);
+            ChartCommand = new Command(ONChartCommand);
         }
 
         private async void OnCamCommand(object obj)
@@ -47,6 +49,11 @@ namespace App1.ViewModels
         private async void OnPractiseCommand()
         {
             await Shell.Current.GoToAsync($"//{nameof(PractisePage)}?Id={id}");
+        }
+
+        private async void ONChartCommand()
+        {
+            await Shell.Current.GoToAsync($"//{nameof(ChartsPage)}?Id={id}");
         }
 
         private async void OnDeleteCommand()

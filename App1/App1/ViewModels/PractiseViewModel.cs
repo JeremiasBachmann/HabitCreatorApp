@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using Xamarin.Forms;
 
@@ -21,6 +22,8 @@ namespace MyFirsApp1tMobileApp.ViewModels
         private string name;
         private string color;
         private int round;
+
+        private Day day;
 
         private double progressValueForProgressBar = 0;
         public double ProgressValueForProgressBar
@@ -44,10 +47,9 @@ namespace MyFirsApp1tMobileApp.ViewModels
         }
 
         public PractiseViewModel()
-        {
+{
             FinishCommand = new Command(OnFinishCommand);
             ClickedCommand = new Command(OnClickedCommand);
-            GetDataFromHabitAsync();
         }
 
         private async void GetDataFromHabitAsync()
@@ -80,6 +82,29 @@ namespace MyFirsApp1tMobileApp.ViewModels
                 Round = (round++)
             };
             await App.LocalDatabase.UpdateHabitAsync(habit);
+
+            var date = DateTime.UtcNow.Date;
+            var days = new List<Day>();
+            days = await App.LocalDatabase.GetDayAsync();
+
+            var day = days.FirstOrDefault(l => l.Date == date && l.HabitID == id);
+            if (day == null)
+            {
+                day = new Day
+                {
+                    Date = date,
+                    Value = progressValue,
+                    HabitID = id
+                };
+                await App.LocalDatabase.SaveDayAsync(day);
+            }
+            else
+            {
+                day.Value = progressValue;
+                await App.LocalDatabase.UpdateDayAsync(day);
+            }
+          
+
             await Shell.Current.GoToAsync($"//{nameof(ProgressPage)}?Id={id}");
         }
 

@@ -7,7 +7,7 @@
     <StackLayout>
 
         <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Microcharts Sample" HorizontalTextAlignment="Center" TextColor="White" FontSize="36" />
+            <Label x:Name="NameLabel"  Text="{Binding Name}" HorizontalTextAlignment="Center" TextColor="White" FontSize="36" />
         </Frame>
 
         <ScrollView>

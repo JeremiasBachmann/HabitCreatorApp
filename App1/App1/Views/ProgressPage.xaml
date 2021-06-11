@@ -20,8 +20,8 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Label x:Name="GoalLabel" Grid.Row="0" Padding="10" Margin="0,10,0,0" Text="Your goal for today: 100 push ups" TextColor="White" FontSize="18" BackgroundColor="{DynamicResource Key=Primary}"/>
-            <ImageButton Grid.Row="1" Margin="0,15,20,0" Command="{Binding CamCommand}" Source="cam_Icon.png" HorizontalOptions="End" HeightRequest="30"/>
-            <ImageButton Grid.Row="1" Margin="20,15,0,0" Command="{Binding ShareCommand}" Source="share.png" HorizontalOptions="Start" HeightRequest="30"/>
+            <ImageButton Grid.Row="1" Margin="0,15,20,0"  BackgroundColor="Transparent" Command="{Binding CamCommand}" Source="cam_Icon.png" HorizontalOptions="End" HeightRequest="30"/>
+            <ImageButton Grid.Row="1" Margin="20,15,0,0"  BackgroundColor="Transparent" Command="{Binding ShareCommand}" Source="share.png" HorizontalOptions="Start" HeightRequest="30"/>
             <plugin:ProgressRing Grid.Row="2" HeightRequest="275" Margin="90,0,90,0" x:Name="progressRing" RingProgressColor="{DynamicResource Key=Primary}" RingBaseColor="#ebebeb"  RingThickness="22">
                 <plugin:ProgressRing.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding PractiseCommand}"/>
@@ -32,9 +32,10 @@
                     <TapGestureRecognizer x:Name="PractiseCommand" Command="{Binding PractiseCommand}"/>
                 </Label.GestureRecognizers>
             </Label>
-            <Image Grid.Row="3" Margin="20,15,0,0"/>
-            <Label x:Name="RoundsLabel" Grid.Row="3" Margin="30,15,0,0" Text="0 Rounds" FontSize="18"/>
-            <ImageButton Grid.Row="3" Margin="0,15,20,0" Command="{Binding DeleteCommand}" Source="trash.png" HorizontalOptions="End" HeightRequest="30"/>
+            <Image Grid.Row="3" Margin="0,15,0,0"/>
+            <ImageButton Grid.Row="3" Margin="25,15,0,0" BackgroundColor="Transparent" Command="{Binding ChartCommand}" Source="chart.png" HorizontalOptions="Start" HeightRequest="30"/>
+            <Label x:Name="RoundsLabel" Grid.Row="3" Text="0 Rounds" FontSize="18" HorizontalOptions="Center"/>
+            <ImageButton Grid.Row="3" Margin="0,15,20,0"  BackgroundColor="Transparent" Command="{Binding DeleteCommand}" Source="trash.png" HorizontalOptions="End" HeightRequest="30"/>
             <Button Grid.Row="5" Text="back" Margin="20,0,0,20" HorizontalOptions="Start" WidthRequest="110" Command="{Binding BackCommand}"/>
             <Button Grid.Row="5" Text="Practise" Margin="0,0,20,20" HorizontalOptions="End"  WidthRequest="110" Command="{Binding PractiseCommand}"/>
         </Grid>

@@ -64,6 +64,7 @@ C:\Users\Jeremias\source\repos\App1\App1\App1.Android\obj\Debug\100\res\drawable
 C:\Users\Jeremias\source\repos\App1\App1\App1.Android\obj\Debug\100\res\drawable\cam_icon.png
 C:\Users\Jeremias\source\repos\App1\App1\App1.Android\obj\Debug\100\res\drawable\share.png
 C:\Users\Jeremias\source\repos\App1\App1\App1.Android\obj\Debug\100\res\drawable\trash.png
+C:\Users\Jeremias\source\repos\App1\App1\App1.Android\obj\Debug\100\res\drawable\chart.png
 C:\Users\Jeremias\source\repos\App1\App1\App1.Android\obj\Debug\100\uploadflags.txt
 C:\Users\Jeremias\source\repos\App1\App1\App1.Android\obj\Debug\100\resolvedassemblies.hash
 C:\Users\Jeremias\source\repos\App1\App1\App1.Android\obj\Debug\100\android\assets\App1.Android.dll

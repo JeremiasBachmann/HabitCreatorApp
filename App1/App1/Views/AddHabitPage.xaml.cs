@@ -28,6 +28,31 @@ namespace App1.Views
                     MaxProgress = double.Parse(nummberEntry.Text),
                     Progress = 0
                 });
+
+                var h = await App.LocalDatabase.GetHabitAsync();
+                int id = h[h.Count -1].ID;
+
+                Day newDay = new Day
+                {
+                    Date = DateTime.UtcNow.Date.AddDays(-7),
+                    Value = 0,
+                    HabitID = id
+                };
+                await App.LocalDatabase.SaveDayAsync(newDay);
+                var lastDate = newDay.Date.Date;
+
+                while (lastDate.Date != DateTime.UtcNow.Date)
+                {
+                    lastDate = lastDate.Date.AddDays(1);
+                    Day day = new Day
+                    {
+                        Date = lastDate.Date,
+                        Value = 0,
+                        HabitID = id
+                    };
+                    await App.LocalDatabase.SaveDayAsync(day);
+                }
+
                 await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
                 nameEntry.Text = nummberEntry.Text = string.Empty;
             }

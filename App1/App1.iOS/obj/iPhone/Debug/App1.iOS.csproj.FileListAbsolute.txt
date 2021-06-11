@@ -167,6 +167,8 @@ C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\Xamarin.Essen
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\Xamarin.Forms.Core.dll
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\Xamarin.Forms.Core.pdb
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\Xamarin.Forms.Platform.dll
+C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\Xamarin.Forms.Platform.iOS.dll
+C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\Xamarin.Forms.Platform.iOS.pdb
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\Xamarin.Forms.Xaml.dll
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\Xamarin.Forms.Xaml.pdb
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\ar\Xamarin.Forms.Platform.iOS.resources.dll
@@ -190,7 +192,7 @@ C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\ms\Xamarin.Fo
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\nb\Xamarin.Forms.Platform.iOS.resources.dll
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\nl\Xamarin.Forms.Platform.iOS.resources.dll
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\pl\Xamarin.Forms.Platform.iOS.resources.dll
-C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\pt-br\Xamarin.Forms.Platform.iOS.resources.dll
+C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\pt-BR\Xamarin.Forms.Platform.iOS.resources.dll
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\pt\Xamarin.Forms.Platform.iOS.resources.dll
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\ro\Xamarin.Forms.Platform.iOS.resources.dll
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\ru\Xamarin.Forms.Platform.iOS.resources.dll
@@ -204,9 +206,7 @@ C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\zh-HK\Xamarin
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\zh-Hans\Xamarin.Forms.Platform.iOS.resources.dll
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\zh-Hant\Xamarin.Forms.Platform.iOS.resources.dll
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\App1.dll
-C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\Xamarin.Forms.Platform.iOS.dll
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\App1.pdb
-C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\Xamarin.Forms.Platform.iOS.pdb
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\obj\iPhone\Debug\actool\_PartialAppManifest.items
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\obj\iPhone\Debug\actool\_BundleResourceWithLogicalName.items
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\obj\iPhone\Debug\ibtool\_BundleResourceWithLogicalName.items

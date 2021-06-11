@@ -1,4 +1,5 @@
 ﻿using App1.Database;
+using App1.Services;
 using System;
 using System.IO;
 using Xamarin.Forms;
@@ -25,6 +26,7 @@ namespace App1
         {
             InitializeComponent();
             MainPage = new AppShell();
+           // Test.Delete();
         }
 
         protected override void OnStart()

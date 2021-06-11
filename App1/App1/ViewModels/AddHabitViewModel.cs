@@ -1,4 +1,5 @@
-﻿using App1.Views;
+﻿using App1.Models;
+using App1.Views;
 using System;
 using System.Diagnostics;
 using System.Windows.Input;

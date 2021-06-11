@@ -2,44 +2,78 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using App1.Models;
+using App1.Services;
 using Microcharts;
 using SkiaSharp;
 using Xamarin.Forms;
 
 namespace App1.Views
 {
-    public partial class ChartsPage : ContentPage
+    public partial class ChartsPage : ContentPage, IQueryAttributable, INotifyPropertyChanged
     {
         public List<ChartEntry> Entries { get; set; } = new List<ChartEntry>();
 
+        public event PropertyChangedEventHandler PropertyChanged;
 
+        private string name;
 
+        public string Name
+        {
+            get { return name; }
+            set{ name = value; OnPropertyChanged(); }
+        }
+
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
 
         public ChartsPage()
         {
             InitializeComponent();
-            LoadLineChart(1);
+            var chartService = new ChartService();
+            chartService.Initialise();
         }
 
-        private async void LoadLineChart(int id)
+        public void ApplyQueryAttributes(IDictionary<string, string> query)
+        {
+            // The query parameter requires URL decoding.
+            string idString = HttpUtility.UrlDecode(query["Id"]);
+            int.TryParse(idString, out int Id);
+            LoadLineChart(Id);
+        }
+
+        private async void LoadLineChart(int habitId)
         {
             var days = new List<Day>();
             days = await App.LocalDatabase.GetDayAsync();
+            var habitDays = days.Where(d => d.HabitID == habitId).ToList();
+            var sortedDays = habitDays.OrderBy(x => x.Date.TimeOfDay).ToList();
+            var last7Days = sortedDays.Skip(Math.Max(0, sortedDays.Count() - 7)).ToList();
+            var habit = await App.LocalDatabase.GetOneHabitAsync(habitId);
+            Name = habit.Name;
 
-            foreach (Day d in days.Where(l => l.ID == id))
+            while (last7Days.Count() < 7)
+            {
+                last7Days.Add(new Day());
+            }
+
+            foreach (Day d in last7Days)
             {
                 ChartEntry chartEntry = new ChartEntry(Convert.ToSingle(d.Value))
                 {
-                    Label = d.Habit.Name,
+                    Label = d.Date.DayOfWeek.ToString(),
                     ValueLabel = d.Value.ToString(),
                     Color = SKColor.Parse("#3498db")
                 };
                 Entries.Add(chartEntry);
             }
-            chartViewLine.Chart = new LineChart { Entries = Entries, LineMode = LineMode.Straight };
+            chartViewLine.Chart = new LineChart { Entries = Entries, LineMode = LineMode.Straight, IsAnimated = true, ValueLabelOrientation = Orientation.Horizontal};
         }
     }
 }

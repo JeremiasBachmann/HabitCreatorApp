@@ -60,3 +60,4 @@ C:\Users\Jeremias\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\XamlC.sta
 C:\Users\Jeremias\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\App1.dll
 C:\Users\Jeremias\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\ref\App1.dll
 C:\Users\Jeremias\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\App1.pdb
+C:\Users\Jeremias\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\App1.csprojAssemblyReference.cache
