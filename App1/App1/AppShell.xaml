@@ -102,7 +102,7 @@
     <ShellContent Route="NewHabitPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:NewHabitPage}" />
     <ShellContent Route="ProgressPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:ProgressPage}" />
     <ShellContent Route="PractisePage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:PractisePage}" />
-    <ShellContent Route="ChartPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:ChartPage}" />
+    <ShellContent Route="ChartsPage" Shell.FlyoutBehavior="Flyout" ContentTemplate="{DataTemplate local:ChartsPage}" />
 
 
 

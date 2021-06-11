@@ -15,7 +15,7 @@ namespace App1
 
         private void OnChartsClicked(object sender, EventArgs e)
         {
-             Shell.Current.GoToAsync($"//{nameof(ChartPage)}");
+             Shell.Current.GoToAsync($"//{nameof(ChartsPage)}");
         }
 
         private void OnLogoutClicked(object sender, EventArgs e)

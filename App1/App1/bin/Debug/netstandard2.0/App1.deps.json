@@ -9,11 +9,11 @@
     ".NETStandard,Version=v2.0/": {
       "App1/1.0.0": {
         "dependencies": {
-          "Microcharts": "0.9.5.9",
+          "Microcharts.Forms": "0.9.5.9",
           "NETStandard.Library": "2.0.3",
           "Xam.Plugins.Forms.ProgressRing": "0.1.2",
-          "Xamarin.Essentials": "1.5.3.2",
-          "Xamarin.Forms": "4.6.0.1141",
+          "Xamarin.Essentials": "1.6.1",
+          "Xamarin.Forms": "5.0.0.2012",
           "sqlite-net-pcl": "1.7.335"
         },
         "runtime": {
@@ -26,6 +26,25 @@
           "System.ValueTuple": "4.5.0"
         },
         "runtime": {
+          "lib/netstandard2.0/Microcharts.dll": {
+            "assemblyVersion": "0.9.5.1",
+            "fileVersion": "0.9.5.1"
+          }
+        }
+      },
+      "Microcharts.Forms/0.9.5.9": {
+        "dependencies": {
+          "Microcharts": "0.9.5.9",
+          "SkiaSharp": "2.80.2",
+          "SkiaSharp.Views.Forms": "2.80.2",
+          "System.ValueTuple": "4.5.0",
+          "Xamarin.Forms": "5.0.0.2012"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microcharts.Forms.dll": {
+            "assemblyVersion": "0.9.5.1",
+            "fileVersion": "0.9.5.1"
+          },
           "lib/netstandard2.0/Microcharts.dll": {
             "assemblyVersion": "0.9.5.1",
             "fileVersion": "0.9.5.1"
@@ -47,6 +66,12 @@
             "assemblyVersion": "2.80.0.0",
             "fileVersion": "2.80.2.0"
           }
+        }
+      },
+      "SkiaSharp.Views.Forms/2.80.2": {
+        "dependencies": {
+          "SkiaSharp": "2.80.2",
+          "Xamarin.Forms": "5.0.0.2012"
         }
       },
       "sqlite-net-pcl/1.7.335": {
@@ -136,7 +161,7 @@
       "System.ValueTuple/4.5.0": {},
       "Xam.Plugins.Forms.ProgressRing/0.1.2": {
         "dependencies": {
-          "Xamarin.Forms": "4.6.0.1141"
+          "Xamarin.Forms": "5.0.0.2012"
         },
         "runtime": {
           "lib/portable-net45+wp80+win8+wpa81/ProgressRing.Forms.Plugin.dll": {
@@ -145,7 +170,7 @@
           }
         }
       },
-      "Xamarin.Essentials/1.5.3.2": {
+      "Xamarin.Essentials/1.6.1": {
         "dependencies": {
           "System.Numerics.Vectors": "4.5.0"
         },
@@ -156,19 +181,19 @@
           }
         }
       },
-      "Xamarin.Forms/4.6.0.1141": {
+      "Xamarin.Forms/5.0.0.2012": {
         "runtime": {
           "lib/netstandard2.0/Xamarin.Forms.Core.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "4.6.0.555"
+            "fileVersion": "5.0.0.671"
           },
           "lib/netstandard2.0/Xamarin.Forms.Platform.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "4.6.0.555"
+            "fileVersion": "5.0.0.671"
           },
           "lib/netstandard2.0/Xamarin.Forms.Xaml.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "4.6.0.555"
+            "fileVersion": "5.0.0.671"
           }
         }
       }
@@ -186,6 +211,13 @@
       "sha512": "sha512-oiaPjsC+l211tRXw17bxT7D1uPHLZG4wZq7w9h9w7LFX76s4ppLN9UGVkUQJ2vBammdFH0JXtbvEUVtbOq85UQ==",
       "path": "microcharts/0.9.5.9",
       "hashPath": "microcharts.0.9.5.9.nupkg.sha512"
+    },
+    "Microcharts.Forms/0.9.5.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qWph+JII7fWqx/ObgqT0IQ9ICGTHSUfvXT1l+Yf/LlLK4DAhDdvn0AKKUatz2uvHy1xHmzBFS+nzdreOpBA2Vw==",
+      "path": "microcharts.forms/0.9.5.9",
+      "hashPath": "microcharts.forms.0.9.5.9.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
@@ -207,6 +239,13 @@
       "sha512": "sha512-D25rzdCwh+3L+XyXqpNa+H/yiLJbE3/R3K/XexwHyQjGdzZvSufFW3oqf3En7hhqSIsxsJ8f5NEZ0J5W5wlGBg==",
       "path": "skiasharp/2.80.2",
       "hashPath": "skiasharp.2.80.2.nupkg.sha512"
+    },
+    "SkiaSharp.Views.Forms/2.80.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8aRDb98O2cHymB94O8FBj85qMC+MYEY6591wBpHcwgfz4HMo4orSMApD5y8VDmHpA5KR0Yh2ija+HTylz/9CgA==",
+      "path": "skiasharp.views.forms/2.80.2",
+      "hashPath": "skiasharp.views.forms.2.80.2.nupkg.sha512"
     },
     "sqlite-net-pcl/1.7.335": {
       "type": "package",
@@ -285,19 +324,19 @@
       "path": "xam.plugins.forms.progressring/0.1.2",
       "hashPath": "xam.plugins.forms.progressring.0.1.2.nupkg.sha512"
     },
-    "Xamarin.Essentials/1.5.3.2": {
+    "Xamarin.Essentials/1.6.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-BSLgDJUOPFRwTpQaftM+s4qb/MsTjrqXulEYDOcK6KF3i0Orf75zo3RwRfqnQ8WfpoEFxW/v0jgcPWCvOMgHxg==",
-      "path": "xamarin.essentials/1.5.3.2",
-      "hashPath": "xamarin.essentials.1.5.3.2.nupkg.sha512"
+      "sha512": "sha512-gG1Bp4j4bpJQ0dp9MeBJQJ9c8xULauIlhc7Cx5Qw4J2K1c+4Glq5n+gkb9Pm0UA/CevXVqLK5ZXmZkuYI52FgA==",
+      "path": "xamarin.essentials/1.6.1",
+      "hashPath": "xamarin.essentials.1.6.1.nupkg.sha512"
     },
-    "Xamarin.Forms/4.6.0.1141": {
+    "Xamarin.Forms/5.0.0.2012": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-SltuAt48A9qfC7pEo9zdQ5/IExdLkGttVAtv9bZw4IWA1SBbRpR2xbeduvowW9DQ/PjJD9HM7aSzxt0Spkwrkw==",
-      "path": "xamarin.forms/4.6.0.1141",
-      "hashPath": "xamarin.forms.4.6.0.1141.nupkg.sha512"
+      "sha512": "sha512-Rqc6xvWR/sf+Db5+qRCFmuYTWVp04QWRfwPto2/JHbShSy4Ed53Q2jpoFzsoloXkJA6saD236PlaWAhT6vI4gw==",
+      "path": "xamarin.forms/5.0.0.2012",
+      "hashPath": "xamarin.forms.5.0.0.2012.nupkg.sha512"
     }
   }
 }

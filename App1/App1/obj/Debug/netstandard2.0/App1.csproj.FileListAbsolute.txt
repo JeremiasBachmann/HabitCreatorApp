@@ -47,7 +47,7 @@ C:\Users\Jeremias\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\App.xaml.
 C:\Users\Jeremias\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
 C:\Users\Jeremias\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\Views\AboutPage.xaml.g.cs
 C:\Users\Jeremias\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\Views\AddHabitPage.xaml.g.cs
-C:\Users\Jeremias\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\Views\ChartPage.xaml.g.cs
+C:\Users\Jeremias\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\Views\ChartsPage.xaml.g.cs
 C:\Users\Jeremias\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\Views\LoginPage.xaml.g.cs
 C:\Users\Jeremias\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\Views\NewHabitPage.xaml.g.cs
 C:\Users\Jeremias\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\Views\PractisePage.xaml.g.cs

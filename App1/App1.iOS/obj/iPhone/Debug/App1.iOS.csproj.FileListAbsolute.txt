@@ -148,8 +148,10 @@ C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\App1.iOS.exe
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\App1.iOS.pdb
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\Microcharts.dll
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\Microcharts.iOS.dll
+C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\Microcharts.Forms.dll
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\SkiaSharp.dll
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\SkiaSharp.Views.iOS.dll
+C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\SkiaSharp.Views.Forms.dll
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\SQLite-net.dll
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\SQLitePCLRaw.batteries_v2.dll
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\SQLitePCLRaw.nativelibrary.dll
@@ -213,7 +215,6 @@ C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\obj\iPhone\Debug\coremlc\_Bund
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\obj\iPhone\Debug\optimized\
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\obj\iPhone\Debug\App1.iOS.csprojAssemblyReference.cache
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\obj\iPhone\Debug\App1.iOS.csproj.CoreCompileInputs.cache
-C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\obj\iPhone\Debug\XamlC.stamp
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\obj\iPhone\Debug\App1.iOS.csproj.CopyComplete
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\obj\iPhone\Debug\App1.iOS.exe
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\obj\iPhone\Debug\App1.iOS.pdb

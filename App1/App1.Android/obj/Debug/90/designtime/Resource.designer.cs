@@ -25,7 +25,6 @@ namespace App1.Droid
 		
 		public static void UpdateIdValues()
 		{
-			global::Microcharts.Droid.Resource.String.library_name = global::App1.Droid.Resource.String.library_name;
 			global::ProgressRingControl.Forms.Plugin.Android.Resource.Animation.abc_fade_in = global::App1.Droid.Resource.Animation.abc_fade_in;
 			global::ProgressRingControl.Forms.Plugin.Android.Resource.Animation.abc_fade_out = global::App1.Droid.Resource.Animation.abc_fade_out;
 			global::ProgressRingControl.Forms.Plugin.Android.Resource.Animation.abc_grow_fade_in_from_bottom = global::App1.Droid.Resource.Animation.abc_grow_fade_in_from_bottom;
