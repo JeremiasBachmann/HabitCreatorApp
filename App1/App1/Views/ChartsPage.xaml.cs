@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Web;
 using App1.Models;
 using App1.Services;
+using App1.ViewModels;
 using Microcharts;
 using SkiaSharp;
 using Xamarin.Forms;
@@ -17,25 +18,12 @@ namespace App1.Views
     public partial class ChartsPage : ContentPage, IQueryAttributable, INotifyPropertyChanged
     {
         public List<ChartEntry> Entries { get; set; } = new List<ChartEntry>();
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private string name;
-
-        public string Name
-        {
-            get { return name; }
-            set{ name = value; OnPropertyChanged(); }
-        }
-
-        protected void OnPropertyChanged([CallerMemberName] string name = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
+        ChartViewModel ChartviewModel { get; set; } = new ChartViewModel();
 
         public ChartsPage()
         {
             InitializeComponent();
+            BindingContext = ChartviewModel;
             var chartService = new ChartService();
             chartService.Initialise();
         }
@@ -46,17 +34,18 @@ namespace App1.Views
             string idString = HttpUtility.UrlDecode(query["Id"]);
             int.TryParse(idString, out int Id);
             LoadLineChart(Id);
+            ChartviewModel.id = Id;
         }
 
         private async void LoadLineChart(int habitId)
         {
+            Entries.Clear();
             var days = new List<Day>();
             days = await App.LocalDatabase.GetDayAsync();
             var habitDays = days.Where(d => d.HabitID == habitId).ToList();
             var sortedDays = habitDays.OrderBy(x => x.Date.TimeOfDay).ToList();
             var last7Days = sortedDays.Skip(Math.Max(0, sortedDays.Count() - 7)).ToList();
             var habit = await App.LocalDatabase.GetOneHabitAsync(habitId);
-            Name = habit.Name;
 
             while (last7Days.Count() < 7)
             {
@@ -111,9 +100,12 @@ namespace App1.Views
             var habitName = habit.Name.ToString();
 
             PerDayLabel.Text = $"{habitName} per day:";
-            DaylyLabel.Text = $"Daily {habitName}:";
-            WeeklyLabel.Text = $"Weekly {habitName}:";
-            MonthlyLabel.Text = $"Monthly {habitName}:";
+            DaylyLabel.Text = $"todays {habitName}:";
+            WeeklyLabel.Text = $"weekly {habitName}:";
+            MonthlyLabel.Text = $"monthly {habitName}:";
+
+           Title = $"{habitName}";
+
         }
     }
 }
