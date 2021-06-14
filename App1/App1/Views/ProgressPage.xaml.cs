@@ -3,7 +3,9 @@ using App1.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -29,7 +31,7 @@ namespace App1.Views
         private async void LoadRingProgressBar(int id)
         {
             var habits = new List<Habit>();
-            habits = await App.LocalDatabase.GetHabitAsync();
+            habits = await App.LocalDatabase.GetHabitsAsync();
 
             foreach (Habit h in habits.Where(l => l.ID == id))
             {

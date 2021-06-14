@@ -2,9 +2,12 @@
 using App1.Views;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace App1.ViewModels
@@ -17,6 +20,8 @@ namespace App1.ViewModels
         public ICommand PractiseCommand { get; }
         public ICommand DeleteCommand { get; }
         public ICommand ChartCommand { get; }
+
+        public Image Image { get; set; } = new Image();
 
         private int id;
         public ProgressViewModel()
@@ -37,9 +42,19 @@ namespace App1.ViewModels
         private async void OnShareCommand(object obj)
         {
             Console.WriteLine("OnShareCommand");
-        }
 
-      
+            await CaptureScreenshot();
+
+            var fn = "Attachment.txt";
+            var file = Path.Combine(FileSystem.CacheDirectory, fn);
+            File.WriteAllText(file, "Hello World");
+
+            await Share.RequestAsync(new ShareFileRequest
+            {
+                Title = "Title",
+                File = new ShareFile(file)
+            });
+        }
 
         private async void OnBackCommand(object obj)
         {
@@ -58,14 +73,27 @@ namespace App1.ViewModels
 
         private async void OnDeleteCommand()
         {
-            var habits = new List<Habit>();
-            habits = await App.LocalDatabase.GetHabitAsync();
-
-            foreach (Habit h in habits.Where(l => l.ID == id))
+            var habits = await App.LocalDatabase.GetHabitsAsync();
+            foreach (Habit habit in habits.Where(h => h.ID == id))
             {
-                await App.LocalDatabase.DeleteHabitAsync(h);
+                await App.LocalDatabase.DeleteHabitAsync(habit);
+            }
+
+            var days = await App.LocalDatabase.GetDaysAsync();
+            foreach (Day day in days.Where(d => d.HabitID == id))
+            {
+                await App.LocalDatabase.DeleteDayAsync(day);
             }
             await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+        }
+
+        async Task CaptureScreenshot()
+        {
+            var screenshot = await Screenshot.CaptureAsync();
+            var stream = await screenshot.OpenReadAsync();
+
+            var imageSource = ImageSource.FromStream(() => stream);
+            Image.Source = imageSource;
         }
 
         public void ApplyQueryAttributes(IDictionary<string, string> query)

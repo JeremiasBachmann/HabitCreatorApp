@@ -22,14 +22,14 @@ namespace App1.Views
         {
             if (!string.IsNullOrWhiteSpace(nameEntry.Text) && !string.IsNullOrWhiteSpace(nummberEntry.Text))
             {
-                await App.LocalDatabase.SaveHabitAsync(new Habit
+                await App.LocalDatabase.InsertHabitAsync(new Habit
                 {
                     Name = nameEntry.Text,
                     MaxProgress = double.Parse(nummberEntry.Text),
                     Progress = 0
                 });
 
-                var h = await App.LocalDatabase.GetHabitAsync();
+                var h = await App.LocalDatabase.GetHabitsAsync();
                 int id = h[h.Count -1].ID;
 
                 Day newDay = new Day
@@ -38,7 +38,7 @@ namespace App1.Views
                     Value = 0,
                     HabitID = id
                 };
-                await App.LocalDatabase.SaveDayAsync(newDay);
+                await App.LocalDatabase.InsertDayAsync(newDay);
                 var lastDate = newDay.Date.Date;
 
                 while (lastDate.Date != DateTime.UtcNow.Date)
@@ -50,7 +50,7 @@ namespace App1.Views
                         Value = 0,
                         HabitID = id
                     };
-                    await App.LocalDatabase.SaveDayAsync(day);
+                    await App.LocalDatabase.InsertDayAsync(day);
                 }
 
                 await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");

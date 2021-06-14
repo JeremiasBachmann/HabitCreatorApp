@@ -10,8 +10,8 @@ namespace App1.Services
     {
         public async void Initialise()
         {
-            var habits = await App.LocalDatabase.GetHabitAsync();
-            var days = await App.LocalDatabase.GetDayAsync();
+            var habits = await App.LocalDatabase.GetHabitsAsync();
+            var days = await App.LocalDatabase.GetDaysAsync();
 
             foreach (Habit habit in habits)
             {
@@ -29,7 +29,7 @@ namespace App1.Services
                         Value = 0,
                         HabitID = habit.ID
                     };
-                    await App.LocalDatabase.SaveDayAsync(newDay);
+                    await App.LocalDatabase.InsertDayAsync(newDay);
                 }
             }
         }

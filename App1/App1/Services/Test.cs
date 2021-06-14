@@ -17,19 +17,19 @@ namespace App1.Services
                 HabitID = 8
             };
 
-             await App.LocalDatabase.SaveDayAsync(da);
+             await App.LocalDatabase.InsertDayAsync(da);
         }
 
         public static async void Delete()
         {
-            var days = await App.LocalDatabase.GetDayAsync();
+            var days = await App.LocalDatabase.GetDaysAsync();
 
             foreach (Day d in days)
             {
-                await App.LocalDatabase.DeleteDaytAsync(d);
+                await App.LocalDatabase.DeleteDayAsync(d);
             }
 
-            var habits = await App.LocalDatabase.GetHabitAsync();
+            var habits = await App.LocalDatabase.GetHabitsAsync();
 
             foreach (Habit h in habits)
             {

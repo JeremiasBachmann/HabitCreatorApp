@@ -41,7 +41,7 @@ namespace App1.Views
         {
             Entries.Clear();
             var days = new List<Day>();
-            days = await App.LocalDatabase.GetDayAsync();
+            days = await App.LocalDatabase.GetDaysAsync();
             var habitDays = days.Where(d => d.HabitID == habitId).ToList();
             var sortedDays = habitDays.OrderBy(x => x.Date.TimeOfDay).ToList();
             var last7Days = sortedDays.Skip(Math.Max(0, sortedDays.Count() - 7)).ToList();

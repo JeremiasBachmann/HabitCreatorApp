@@ -55,7 +55,7 @@ namespace MyFirsApp1tMobileApp.ViewModels
         private async void GetDataFromHabitAsync()
         {
             var habits = new List<Habit>();
-            habits = await App.LocalDatabase.GetHabitAsync();
+            habits = await App.LocalDatabase.GetHabitsAsync();
 
             foreach (Habit h in habits.Where(l => l.ID == id))
             {
@@ -79,13 +79,13 @@ namespace MyFirsApp1tMobileApp.ViewModels
                 MaxProgress = maxValue,
                 ProgressInPercent = (progressValue / maxValue),
                 Color = color,
-                Round = (round++)
+                Round = (++round)
             };
             await App.LocalDatabase.UpdateHabitAsync(habit);
 
             var date = DateTime.UtcNow.Date;
             var days = new List<Day>();
-            days = await App.LocalDatabase.GetDayAsync();
+            days = await App.LocalDatabase.GetDaysAsync();
 
             var day = days.FirstOrDefault(l => l.Date == date && l.HabitID == id);
             if (day == null)
@@ -96,7 +96,7 @@ namespace MyFirsApp1tMobileApp.ViewModels
                     Value = progressValue,
                     HabitID = id
                 };
-                await App.LocalDatabase.SaveDayAsync(day);
+                await App.LocalDatabase.InsertDayAsync(day);
             }
             else
             {

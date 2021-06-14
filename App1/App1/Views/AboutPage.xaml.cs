@@ -16,7 +16,7 @@ namespace App1.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            ProgressCollectionView.ItemsSource = await App.LocalDatabase.GetHabitAsync();
+            ProgressCollectionView.ItemsSource = await App.LocalDatabase.GetHabitsAsync();
         }
     }
 }
