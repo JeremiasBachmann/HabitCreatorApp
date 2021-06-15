@@ -19,7 +19,13 @@ namespace App1.Services
                 var sortedDays = habitDays.OrderBy(x => x.Date.TimeOfDay).ToList();
                 var lastDay = sortedDays.Skip(Math.Max(0, sortedDays.Count() - 1)).ToList();
                 var lastDate = lastDay.FirstOrDefault().Date;
-              
+
+                if (lastDate.Date != DateTime.UtcNow.Date)
+                {
+                    habit.Progress = 0;
+                    await App.LocalDatabase.UpdateHabitAsync(habit);
+                }
+
                 while (lastDate.Date != DateTime.UtcNow.Date)
                 {
                     lastDate = lastDate.Date.AddDays(1);

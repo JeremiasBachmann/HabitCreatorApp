@@ -43,17 +43,7 @@ namespace App1.ViewModels
         {
             Console.WriteLine("OnShareCommand");
 
-            await CaptureScreenshot();
-
-            var fn = "Attachment.txt";
-            var file = Path.Combine(FileSystem.CacheDirectory, fn);
-            File.WriteAllText(file, "Hello World");
-
-            await Share.RequestAsync(new ShareFileRequest
-            {
-                Title = "Title",
-                File = new ShareFile(file)
-            });
+            await TakeScreenshot();
         }
 
         private async void OnBackCommand(object obj)
@@ -87,13 +77,46 @@ namespace App1.ViewModels
             await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
         }
 
-        async Task CaptureScreenshot()
+        private async Task TakeScreenshot()
         {
             var screenshot = await Screenshot.CaptureAsync();
             var stream = await screenshot.OpenReadAsync();
+            var buffer = new byte[16 * 1024];
+            byte[] imageBytes;
 
-            var imageSource = ImageSource.FromStream(() => stream);
-            Image.Source = imageSource;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                int read;
+                while ((read = stream.Read(buffer, 0, buffer.Length)) > 0)
+                {
+                    ms.Write(buffer, 0, read);
+                }
+                imageBytes = ms.ToArray();
+            }
+            ShareImage(imageBytes);
+        }
+
+        private async void ShareImage(byte[] imageBytes)
+        {
+            try
+            {
+                string filename = "img.jpg";
+                string tempFileName = Path.Combine(FileSystem.CacheDirectory, filename);
+                if (File.Exists(tempFileName))
+                {
+                    File.Delete(tempFileName);
+                }
+                File.WriteAllBytes(tempFileName, imageBytes);
+                await Share.RequestAsync(new ShareFileRequest()
+                {
+                    File = new ShareFile(tempFileName),
+                    Title = "Sharing image",
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         public void ApplyQueryAttributes(IDictionary<string, string> query)

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "UX04azqFtrhJpWErPhMEpkFyZepl//0D/SyrGatcxHoF8OXxLe49a2Qa09OEBiLkZ09h7rDNPU5DLMQh0YB01A==",
+  "dgSpecHash": "LVp7gw58/q4F/5i9iR9UlaENtWWD4ab5YUzvAONeY1PtapATKPwg5KlSjdlQcP6WE4krXGNrXi+puuv8asmYWw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jeremias\\source\\repos\\App1\\App1\\App1\\App1.csproj",
   "expectedPackageFiles": [
@@ -20,6 +20,7 @@
     "C:\\Users\\Jeremias\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\Jeremias\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
     "C:\\Users\\Jeremias\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
+    "C:\\Users\\Jeremias\\.nuget\\packages\\xam.plugin.media\\5.0.1\\xam.plugin.media.5.0.1.nupkg.sha512",
     "C:\\Users\\Jeremias\\.nuget\\packages\\xam.plugins.forms.progressring\\0.1.2\\xam.plugins.forms.progressring.0.1.2.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512"

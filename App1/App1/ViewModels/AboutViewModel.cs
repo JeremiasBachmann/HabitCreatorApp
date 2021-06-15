@@ -1,4 +1,5 @@
 ﻿using App1.Models;
+using App1.Services;
 using App1.Views;
 using System;
 using System.Collections.ObjectModel;
@@ -28,6 +29,8 @@ namespace App1.ViewModels
             AddHabitCommand = new Command(OnAddHabit);
             LoadHabitCommand = new Command(async () => await ExecuteLoadHabitsCommand());
             TappCommand = new Command<string>(OnTappCommand);
+            var chartService = new ChartService();
+            chartService.Initialise();
         }
 
         private async void OnAddClicked(object obj)

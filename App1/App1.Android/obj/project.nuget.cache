@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7EntjftYoOtGSru0hunm0mPHlNvOBYEPGzLHK6ppcOr7Q81oZBoQonxpuMPpP+WNd806th8HGsJHCOxbYUCsYA==",
+  "dgSpecHash": "8Xf9D1lHLgHTOcrVucL6bm79x1oaXi1QG9LwOWIWSVoVcBTiiFNmrDOj83cGUH8mJ2fFSXJZjQIDPn0wW0Bayw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jeremias\\source\\repos\\App1\\App1\\App1.Android\\App1.Android.csproj",
   "expectedPackageFiles": [
@@ -19,6 +19,7 @@
     "C:\\Users\\Jeremias\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\Jeremias\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
     "C:\\Users\\Jeremias\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
+    "C:\\Users\\Jeremias\\.nuget\\packages\\xam.plugin.media\\5.0.1\\xam.plugin.media.5.0.1.nupkg.sha512",
     "C:\\Users\\Jeremias\\.nuget\\packages\\xam.plugins.forms.progressring\\0.1.2\\xam.plugins.forms.progressring.0.1.2.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.activity\\1.1.0.5\\xamarin.androidx.activity.1.1.0.5.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.annotation\\1.1.0.8\\xamarin.androidx.annotation.1.1.0.8.nupkg.sha512",
