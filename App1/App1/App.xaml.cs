@@ -26,7 +26,6 @@ namespace App1
         {
             InitializeComponent();
             MainPage = new AppShell();
-           // Test.Delete();
         }
 
         protected override void OnStart()

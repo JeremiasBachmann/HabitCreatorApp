@@ -6,7 +6,6 @@ namespace App1.Views
 {
     public partial class AboutPage : ContentPage
     {
-        public IDataStore<Habit> DataStore => DependencyService.Get<IDataStore<Habit>>();
         public AboutPage()
         {
             InitializeComponent();

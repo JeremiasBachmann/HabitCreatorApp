@@ -1,15 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "8Xf9D1lHLgHTOcrVucL6bm79x1oaXi1QG9LwOWIWSVoVcBTiiFNmrDOj83cGUH8mJ2fFSXJZjQIDPn0wW0Bayw==",
+  "dgSpecHash": "KsxenoK2vrqS4QFssrY4IQuNCbaZZiN30uzVXL28NQG9sKKXWEzI6nlZOd8zjay58uBCQAF4PQwR+bmJOMOAVw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jeremias\\source\\repos\\App1\\App1\\App1.Android\\App1.Android.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jeremias\\.nuget\\packages\\microcharts\\0.9.5.9\\microcharts.0.9.5.9.nupkg.sha512",
     "C:\\Users\\Jeremias\\.nuget\\packages\\microcharts.forms\\0.9.5.9\\microcharts.forms.0.9.5.9.nupkg.sha512",
+    "C:\\Users\\Jeremias\\.nuget\\packages\\newtonsoft.json\\9.0.1\\newtonsoft.json.9.0.1.nupkg.sha512",
     "C:\\Users\\Jeremias\\.nuget\\packages\\skiasharp\\2.80.2\\skiasharp.2.80.2.nupkg.sha512",
     "C:\\Users\\Jeremias\\.nuget\\packages\\skiasharp.views\\2.80.2\\skiasharp.views.2.80.2.nupkg.sha512",
     "C:\\Users\\Jeremias\\.nuget\\packages\\skiasharp.views.forms\\2.80.2\\skiasharp.views.forms.2.80.2.nupkg.sha512",
     "C:\\Users\\Jeremias\\.nuget\\packages\\sqlite-net-pcl\\1.7.335\\sqlite-net-pcl.1.7.335.nupkg.sha512",
+    "C:\\Users\\Jeremias\\.nuget\\packages\\sqlitenetextensions\\2.1.0\\sqlitenetextensions.2.1.0.nupkg.sha512",
     "C:\\Users\\Jeremias\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.3\\sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",
     "C:\\Users\\Jeremias\\.nuget\\packages\\sqlitepclraw.core\\2.0.3\\sqlitepclraw.core.2.0.3.nupkg.sha512",
     "C:\\Users\\Jeremias\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3.android\\2.0.3\\sqlitepclraw.lib.e_sqlite3.android.2.0.3.nupkg.sha512",

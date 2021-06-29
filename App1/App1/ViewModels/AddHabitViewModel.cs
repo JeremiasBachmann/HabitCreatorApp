@@ -2,6 +2,7 @@
 using App1.Views;
 using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -22,13 +23,13 @@ namespace App1.ViewModels
             set => SetProperty(ref name, value);
         }
 
-        public double MaxProgress
+        public double RepetitionsToDo
         {
             get => maxProgress;
             set => SetProperty(ref maxProgress, value);
         }
 
-        public double Progress
+        public double RepetitionsDone
         {
             get => progress;
             set => SetProperty(ref progress, value);
@@ -47,20 +48,16 @@ namespace App1.ViewModels
             }
         }
 
-        public async void LoadHabitId(string habitId)
+        public async void LoadHabitId(string habitIdAsString)
         {
-            try
-            {
-                var habit = await DataStore.GetItemAsync(habitId);
-                iD = habit.ID;
-                Name = habit.Name;
-                MaxProgress = habit.MaxProgress;
-                Progress = habit.Progress;
-            }
-            catch (Exception)
-            {
-                Debug.WriteLine("Failed to Load Habit");
-            }
+            int.TryParse(habitIdAsString, out int habitId);
+
+            var habitDays = await App.LocalDatabase.GetHabitDaysAsync();
+            var habitDay = habitDays.FirstOrDefault(h => h.Habit.ID == habitId && h.Day.Date == DateTime.UtcNow.Date);
+            iD = habitDay.Habit.ID;
+            Name = habitDay.Habit.Name;
+            RepetitionsToDo = habitDay.RepetionsToDo;
+            RepetitionsDone = habitDay.RepetionsDone;
         }
     }
 }

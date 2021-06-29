@@ -11,10 +11,6 @@ namespace App1.Models
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
         public string Name { get; set; }
-        public double MaxProgress { get; set; }
-        public double Progress { get; set; }
-        public double ProgressInPercent { get; set; }
-        public int Round { get; set; }
         public string Color { get; set; }
 
         public Command<int> TappCommand { get; } = new Command<int>(OnTappCommand);

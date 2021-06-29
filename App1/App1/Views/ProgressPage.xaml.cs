@@ -30,14 +30,15 @@ namespace App1.Views
 
         private async void LoadRingProgressBar(int id)
         {
-            var habits = new List<Habit>();
-            habits = await App.LocalDatabase.GetHabitsAsync();
+            var habitpDays = await App.LocalDatabase.GetHabitDaysAsync();
 
-            foreach (Habit h in habits.Where(l => l.ID == id))
+            foreach (HabitPerDay h in habitpDays.Where(l => l.HabitID == id && l.Day.Date == DateTime.UtcNow.Date))
             {
-                progressRing.Progress = (h.Progress / h.MaxProgress);
-                GoalLabel.Text = ($"Your goal for today: {h.MaxProgress} {h.Name}");
-                ProgressLabel.Text = $"{h.Progress}/{h.MaxProgress}";
+                double.TryParse(h.RepetionsDone.ToString(), out double repetitionsDoneForProgressBar);
+                double.TryParse(h.RepetionsToDo.ToString(), out double repetisionsToDoForProgressBar);
+                progressRing.Progress = (repetitionsDoneForProgressBar / repetisionsToDoForProgressBar);
+                GoalLabel.Text = ($"Your goal for today: {h.RepetionsToDo} {h.Habit.Name}");
+                ProgressLabel.Text = $"{h.RepetionsDone}/{h.RepetionsToDo}";
                 RoundsLabel.Text = $"{h.Round} Rounds";
             }
         }

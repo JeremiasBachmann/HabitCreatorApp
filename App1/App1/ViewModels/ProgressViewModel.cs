@@ -69,10 +69,10 @@ namespace App1.ViewModels
                 await App.LocalDatabase.DeleteHabitAsync(habit);
             }
 
-            var days = await App.LocalDatabase.GetDaysAsync();
-            foreach (Day day in days.Where(d => d.HabitID == id))
+            var HabitDays = await App.LocalDatabase.GetHabitDaysAsync();
+            foreach (var habitPerDay in HabitDays.Where(d => d.Habit.ID == id))
             {
-                await App.LocalDatabase.DeleteDayAsync(day);
+                await App.LocalDatabase.DeleteHabitPerDayAsync(habitPerDay);
             }
             await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
         }

@@ -3,6 +3,7 @@ using App1.Models;
 using App1.ViewModels;
 using App1.Views;
 using System;
+using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,7 +18,6 @@ namespace App1.Views
             this.BindingContext = new AddHabitViewModel();
         }
 
-
         async void OnButtonClicked(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(nameEntry.Text) && !string.IsNullOrWhiteSpace(nummberEntry.Text))
@@ -25,34 +25,28 @@ namespace App1.Views
                 await App.LocalDatabase.InsertHabitAsync(new Habit
                 {
                     Name = nameEntry.Text,
-                    MaxProgress = double.Parse(nummberEntry.Text),
-                    Progress = 0
                 });
 
-                var h = await App.LocalDatabase.GetHabitsAsync();
-                int id = h[h.Count -1].ID;
+                var habits = await App.LocalDatabase.GetHabitsAsync();
+                var habit = habits[habits.Count - 1];
+                var days = await App.LocalDatabase.GetDaysAsync();
+                var sortedDays = days.OrderBy(x => x.Date).ToList();
+                var lastMonth = DateTime.UtcNow.Date.AddDays(-30);
 
-                Day newDay = new Day
+                for (int i = 0; lastMonth.Date < DateTime.UtcNow.Date; i++)
                 {
-                    Date = DateTime.UtcNow.Date.AddDays(-7),
-                    Value = 0,
-                    HabitID = id
-                };
-                await App.LocalDatabase.InsertDayAsync(newDay);
-                var lastDate = newDay.Date.Date;
-
-                while (lastDate.Date != DateTime.UtcNow.Date)
-                {
-                    lastDate = lastDate.Date.AddDays(1);
-                    Day day = new Day
+                    await App.LocalDatabase.InsertHabitPerDayAsync(new HabitPerDay
                     {
-                        Date = lastDate.Date,
-                        Value = 0,
-                        HabitID = id
-                    };
-                    await App.LocalDatabase.InsertDayAsync(day);
+                        HabitID = habit.ID,
+                        Habit = habit,
+                        DayID = sortedDays[i].ID,
+                        Day = sortedDays[i],
+                        RepetionsToDo = int.Parse(nummberEntry.Text),
+                        RepetionsDone = 0,
+                        Round = 0
+                    });
+                    lastMonth = lastMonth.Date.AddDays(1);
                 }
-
                 await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
                 nameEntry.Text = nummberEntry.Text = string.Empty;
             }

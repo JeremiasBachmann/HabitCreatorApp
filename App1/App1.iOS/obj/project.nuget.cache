@@ -1,15 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "XREQtWUcbjZRO1NY6BQEjPvoywpOoLkpBzC/4yu9l7B9eZbigG2KiwMWSEXXR9FxZ6hj2YFlhzR3DWX2m67EyQ==",
+  "dgSpecHash": "QyPy6sfuV7o04kX9j5w8HJOcQYYOX/GRPC7dg+/uqm5CUzlB/o/K6cPR/vnGVQo3QMMyGlX5vv5wFhAjRYvUbA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jeremias\\source\\repos\\App1\\App1\\App1.iOS\\App1.iOS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jeremias\\.nuget\\packages\\microcharts\\0.9.5.9\\microcharts.0.9.5.9.nupkg.sha512",
     "C:\\Users\\Jeremias\\.nuget\\packages\\microcharts.forms\\0.9.5.9\\microcharts.forms.0.9.5.9.nupkg.sha512",
+    "C:\\Users\\Jeremias\\.nuget\\packages\\newtonsoft.json\\9.0.1\\newtonsoft.json.9.0.1.nupkg.sha512",
     "C:\\Users\\Jeremias\\.nuget\\packages\\skiasharp\\2.80.2\\skiasharp.2.80.2.nupkg.sha512",
     "C:\\Users\\Jeremias\\.nuget\\packages\\skiasharp.views\\2.80.2\\skiasharp.views.2.80.2.nupkg.sha512",
     "C:\\Users\\Jeremias\\.nuget\\packages\\skiasharp.views.forms\\2.80.2\\skiasharp.views.forms.2.80.2.nupkg.sha512",
     "C:\\Users\\Jeremias\\.nuget\\packages\\sqlite-net-pcl\\1.7.335\\sqlite-net-pcl.1.7.335.nupkg.sha512",
+    "C:\\Users\\Jeremias\\.nuget\\packages\\sqlitenetextensions\\2.1.0\\sqlitenetextensions.2.1.0.nupkg.sha512",
     "C:\\Users\\Jeremias\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.3\\sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",
     "C:\\Users\\Jeremias\\.nuget\\packages\\sqlitepclraw.core\\2.0.3\\sqlitepclraw.core.2.0.3.nupkg.sha512",
     "C:\\Users\\Jeremias\\.nuget\\packages\\sqlitepclraw.provider.dynamic_cdecl\\2.0.3\\sqlitepclraw.provider.dynamic_cdecl.2.0.3.nupkg.sha512",

@@ -8,17 +8,6 @@ namespace App1.Services
 {
     static class Test
     {
-        public static async void Add()
-        {
-            var da = new Day()
-            {
-                Date = new DateTime(2021, 6, 1),
-                Value = 0,
-                HabitID = 8
-            };
-
-             await App.LocalDatabase.InsertDayAsync(da);
-        }
 
         public static async void Delete()
         {
@@ -34,6 +23,13 @@ namespace App1.Services
             foreach (Habit h in habits)
             {
                 await App.LocalDatabase.DeleteHabitAsync(h);
+            }
+
+            var habitsperDay = await App.LocalDatabase.GetHabitDaysAsync();
+
+            foreach (HabitPerDay hb in habitsperDay)
+            {
+                await App.LocalDatabase.DeleteHabitPerDayAsync(hb);
             }
         }
     }

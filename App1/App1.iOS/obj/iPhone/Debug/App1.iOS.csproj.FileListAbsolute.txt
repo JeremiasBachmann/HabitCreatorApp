@@ -160,6 +160,8 @@ C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\SQLitePCLRaw.
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\System.Buffers.dll
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\System.Memory.dll
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\Plugin.Media.dll
+C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\Plugin.Media.pdb
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\ProgressRing.Forms.Plugin.dll
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\ProgressRing.Forms.Plugin.iOS.dll
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\Xamarin.Essentials.dll
@@ -213,8 +215,11 @@ C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\obj\iPhone\Debug\ibtool\_Bundl
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\obj\iPhone\Debug\coremlc\_PartialAppManifest.items
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\obj\iPhone\Debug\coremlc\_BundleResourceWithLogicalName.items
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\obj\iPhone\Debug\optimized\
-C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\obj\iPhone\Debug\App1.iOS.csprojAssemblyReference.cache
+C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\obj\iPhone\Debug\App1.iOS.csproj.AssemblyReference.cache
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\obj\iPhone\Debug\App1.iOS.csproj.CoreCompileInputs.cache
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\obj\iPhone\Debug\App1.iOS.csproj.CopyComplete
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\obj\iPhone\Debug\App1.iOS.exe
 C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\obj\iPhone\Debug\App1.iOS.pdb
+C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\Newtonsoft.Json.dll
+C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\SQLiteNetExtensions.dll
+C:\Users\Jeremias\source\repos\App1\App1\App1.iOS\bin\iPhone\Debug\SQLiteNetExtensions.pdb

@@ -40,64 +40,52 @@ namespace App1.Views
         private async void LoadLineChart(int habitId)
         {
             Entries.Clear();
-            var days = new List<Day>();
-            days = await App.LocalDatabase.GetDaysAsync();
-            var habitDays = days.Where(d => d.HabitID == habitId).ToList();
-            var sortedDays = habitDays.OrderBy(x => x.Date.TimeOfDay).ToList();
+            var days = await App.LocalDatabase.GetDaysAsync();
+            var sortedDays = days.OrderBy(x => x.Date.TimeOfDay).ToList();
             var last7Days = sortedDays.Skip(Math.Max(0, sortedDays.Count() - 7)).ToList();
-            var habit = await App.LocalDatabase.GetOneHabitAsync(habitId);
 
-            while (last7Days.Count() < 7)
-            {
-                last7Days.Add(new Day());
-            }
+            var habitDays = await App.LocalDatabase.GetHabitDaysAsync();
+            List<HabitPerDay> lastSevenHabitDays = new List<HabitPerDay>();
 
             foreach (Day d in last7Days)
             {
-                ChartEntry chartEntry = new ChartEntry(Convert.ToSingle(d.Value))
+                lastSevenHabitDays.Add(habitDays.First(h => h.Day == d && h.Habit.ID == habitId));
+            }
+
+            foreach (HabitPerDay habitPerDay in lastSevenHabitDays)
+            {
+                ChartEntry chartEntry = new ChartEntry(Convert.ToSingle(habitPerDay.RepetionsDone))
                 {
-                    Label = d.Date.DayOfWeek.ToString(),
-                    ValueLabel = d.Value.ToString(),
+                    Label = habitPerDay.Day.Date.DayOfWeek.ToString(),
+                    ValueLabel = habitPerDay.RepetionsDone.ToString(),
                     Color = SKColor.Parse("#3498db")
                 };
                 Entries.Add(chartEntry);
             }
             chartViewLine.Chart = new LineChart { Entries = Entries, LineMode = LineMode.Straight, IsAnimated = true, ValueLabelOrientation = Orientation.Horizontal};
 
-            LoadLabels(sortedDays, habit);
+            LoadLabels(lastSevenHabitDays, habitDays.FirstOrDefault().Habit.Name);
         }
 
-        private void LoadLabels(List<Day> sortedDays, Habit habit)
+        private void LoadLabels(List<HabitPerDay> lastSevenHabitDays, string habitName)
         {
-            var last7Days = sortedDays.Skip(Math.Max(0, sortedDays.Count() - 7)).ToList();
-            var lastMonth = sortedDays.Where(d => d.Date.Date.Month == DateTime.UtcNow.Date.Month);
-            var lastDay = sortedDays.Skip(Math.Max(0, sortedDays.Count() - 1)).ToList();
-
             double perDayPushUps = 0;
-            double dailyPushUps = lastDay.FirstOrDefault().Value;
+            double dailyPushUps = lastSevenHabitDays.FirstOrDefault().RepetionsDone;
             double weeklyPushUps = 0;
             double MonthlyPushUps = 0;
 
-            foreach (Day d in last7Days)
+            foreach (var d in lastSevenHabitDays)
             {
-                weeklyPushUps += d.Value;
+                weeklyPushUps += d.RepetionsDone;
             }
 
             perDayPushUps = weeklyPushUps / 7;
             perDayPushUps = Math.Truncate(perDayPushUps);
 
-            foreach (Day d in lastMonth)
-            {
-                MonthlyPushUps += d.Value;
-            }
-
-
             PerDayLabelValue.Text = perDayPushUps.ToString();
             DaylyLabelValue.Text = dailyPushUps.ToString();
             WeeklyLabelValue.Text = weeklyPushUps.ToString();
             MonthlyLabelValue.Text = MonthlyPushUps.ToString();
-
-            var habitName = habit.Name.ToString();
 
             PerDayLabel.Text = $"{habitName} per day:";
             DaylyLabel.Text = $"todays {habitName}:";
@@ -105,7 +93,6 @@ namespace App1.Views
             MonthlyLabel.Text = $"monthly {habitName}:";
 
            Title = $"{habitName}";
-
         }
     }
 }

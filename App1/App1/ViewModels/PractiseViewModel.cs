@@ -16,14 +16,14 @@ namespace MyFirsApp1tMobileApp.ViewModels
         public Command FinishCommand { get; }
         public Command ClickedCommand { get; }
         public event PropertyChangedEventHandler PropertyChanged;
-        private double maxValue = 100;
-        private double progressValue;
+
         private int id;
-        private string name;
-        private string color;
+        private Habit habit;
+        private Day day;
+        private int repetisionsToDo = 100;
+        private int repetitionsDone;
         private int round;
 
-        private Day day;
 
         private double progressValueForProgressBar = 0;
         public double ProgressValueForProgressBar
@@ -54,65 +54,44 @@ namespace MyFirsApp1tMobileApp.ViewModels
 
         private async void GetDataFromHabitAsync()
         {
-            var habits = new List<Habit>();
-            habits = await App.LocalDatabase.GetHabitsAsync();
+            var Days = await App.LocalDatabase.GetDaysAsync();
+            var habitDays = await App.LocalDatabase.GetHabitDaysAsync();
 
-            foreach (Habit h in habits.Where(l => l.ID == id))
+            foreach (HabitPerDay h in habitDays.Where(h => h.Habit.ID == id && h.Day.Date == DateTime.UtcNow.Date))
             {
-                maxValue = h.MaxProgress;
-                progressValue = h.Progress;
-                name = h.Name;
+                day = h.Day;
+                habit = h.Habit;
+                repetisionsToDo = h.RepetionsToDo;
+                repetitionsDone = h.RepetionsDone;
                 round = h.Round;
             }
 
-            ProgressValueForProgressBar = (progressValue / maxValue);
-            ProgressValueAsString = progressValue.ToString();
+            ProgressValueForProgressBar = (repetitionsDone / repetisionsToDo);
+            ProgressValueAsString = repetitionsDone.ToString();
         }
 
         private async void OnFinishCommand(object obj)
         {
-            var habit = new Habit
+            var HabitPerDay = new HabitPerDay
             {
                 ID = id,
-                Name = name,
-                Progress = progressValue,
-                MaxProgress = maxValue,
-                ProgressInPercent = (progressValue / maxValue),
-                Color = color,
-                Round = (++round)
+                Habit = habit,
+                Day = day,
+                RepetionsToDo = repetisionsToDo,
+                RepetionsDone = repetitionsDone,
+                Round = ++round
             };
-            await App.LocalDatabase.UpdateHabitAsync(habit);
-
-            var date = DateTime.UtcNow.Date;
-            var days = new List<Day>();
-            days = await App.LocalDatabase.GetDaysAsync();
-
-            var day = days.FirstOrDefault(l => l.Date == date && l.HabitID == id);
-            if (day == null)
-            {
-                day = new Day
-                {
-                    Date = date,
-                    Value = progressValue,
-                    HabitID = id
-                };
-                await App.LocalDatabase.InsertDayAsync(day);
-            }
-            else
-            {
-                day.Value = progressValue;
-                await App.LocalDatabase.UpdateDayAsync(day);
-            }
-          
-
-            await Shell.Current.GoToAsync($"//{nameof(ProgressPage)}?Id={id}");
+            await App.LocalDatabase.UpdateHabitPerDayAsync(HabitPerDay);
+            await Shell.Current.GoToAsync($"//{nameof(ProgressPage)}?Id={habit.ID}");
         }
 
         private async void OnClickedCommand(object obj)
         {
-            progressValue++;
-            ProgressValueForProgressBar = (progressValue / maxValue);
-            ProgressValueAsString = progressValue.ToString();
+            repetitionsDone++;
+            double.TryParse(repetitionsDone.ToString(), out double repetitionsDoneForProgressBar);
+            double.TryParse(repetisionsToDo.ToString(), out double repetisionsToDoForProgressBar);
+            ProgressValueForProgressBar = (repetitionsDoneForProgressBar / repetisionsToDoForProgressBar);
+            ProgressValueAsString = repetitionsDone.ToString();
             Console.WriteLine(ProgressValueForProgressBar);
             Console.WriteLine(ProgressValueAsString);
         }
